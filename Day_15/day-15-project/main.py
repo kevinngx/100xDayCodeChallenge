@@ -32,6 +32,16 @@ resources = {
     "coffee": 100,
 }
 
+def process_order(order):
+  if order == "report":
+    report(resources)
+  elif order == "cappuccino" or order == "latte" or  order == "espresso":
+    if check_resources(order) == True:
+      if request_money(order) == True:
+        make_coffee(order)
+  else:
+    print("Invalid order")
+
 def report(resource):
   print("\nPrinting report...")
   print("Water: " + str(resource["water"]) + "ml")
@@ -76,16 +86,6 @@ def calculate_payment(payment):
   total += payment["nickles"] * 0.05
   total += payment["pennies"] * 0.01
   return total
-
-def process_order(order):
-  if order == "report":
-    report(resources)
-  elif order == "cappuccino" or order == "latte" or  order == "espresso":
-    if check_resources(order) == True:
-      if request_money(order) == True:
-        make_coffee(order)
-  else:
-    print("Invalid order")
 
 def make_coffee(order):
   # Check resources in machine --> water, milk, coffee
