@@ -46,12 +46,26 @@ scoreboard = Scoreboard()
 ball = Ball()
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(0.05)
     screen.update()
     ball.move()
+    if ball.distance(player_1) < 20 or ball.distance(player_2) < 20:
+        ball.flip_x()
+        ball.flip_y()
+    
+    if ball.xcor() + 10 > 500: 
+        ball.flip_x()
+        scoreboard.p1_scored()
+        ball.reset()
+    elif ball.xcor() - 10 < -500:
+        ball.flip_x()    
+        scoreboard.p2_scored()
+        ball.reset()
+    
 
-# 5. Detect collision with wall and bounce
 # 6. Detect collision with paddle
+
+
 # 7. Dtect when paddle misses
 
 

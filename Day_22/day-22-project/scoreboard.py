@@ -29,3 +29,10 @@ class Scoreboard(Turtle):
         self.goto(0, 0)
         self.write(f"GAME OVER", True, align="Center", font=("Arial", 24, "normal"))
         
+    def p1_scored(self):
+        self.p1_score += 1
+        self.update_scoreboard()
+
+    def p2_scored(self):
+        self.p2_score += 1
+        self.update_scoreboard()
