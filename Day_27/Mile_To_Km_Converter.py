@@ -5,7 +5,7 @@ window.title("Miles to Kilometres Converter")
 window.minsize(width=300, height=150)
 window.config(padx=20, pady=20)
 
-# 1. Label
+# 1. Labels
 
 my_label = Label(text="is equal to", font=("Arial", 24, "bold"))
 my_label.grid(column=1, row=2)
@@ -16,7 +16,7 @@ miles_label.grid(column=3, row=1)
 km_label = Label(text="Km", font=("Arial", 24, "bold"))
 km_label.grid(column=3, row=2)
 
-# 2. Button
+# 2. Buttons
 
 def convert(input):
     miles = float(input)
@@ -31,6 +31,7 @@ button = Button(text="Convert", command=button_clicked)
 button.grid(column=2, row=3)
 
 # 3. Entry
+
 def print_input():
     print(input.get())
 input = Entry()
