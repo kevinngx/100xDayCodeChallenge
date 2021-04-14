@@ -35,25 +35,5 @@ input.config(width=10)
 # input.pack()
 input.grid(column=4, row=3)
 
-# # 4. Text
-# my_text = Text(height=2, width=20)
-# my_text.pack()
-
-# # 5. Spinbox
-# my_spinbox = Spinbox()
-# my_spinbox.pack()
-
-# # 6.Scale
-# my_scale = Scale()
-# my_scale.pack()
-
-
-
-
-# # Using turtle
-# import turtle
-# tim = turtle.Turtle()
-# tim.write("Hello, World!")
-
 # Keep this line at the end
 window.mainloop()
