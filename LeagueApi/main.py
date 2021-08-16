@@ -2,11 +2,12 @@ from riotwatcher import LolWatcher, ApiError
 import discord
 from datetime import datetime
 
-api_key = "RGAPI-c52fd542-5777-46d9-a8aa-73010e9d8f78"
+api_key = "RGAPI-17143338-a471-4265-bcba-599097bc623e"
 my_region = 'OC1'
 client = discord.Client()
 
 def main():
+    print("Starting bot...")
     @client.event
     async def on_ready():
         print('We have logged in as {0.user}'.format(client))
@@ -34,16 +35,15 @@ def main():
             await message.channel.send("Getting number of games everyone played today, please wait...")
             await message.channel.send(getTodaysGamesEveryone())
 
-    client.run("ODc2MDc0NDI5NTM5NTgxOTgz.YRex5A.MU5ZLAxZJbuKA_R3dOhqem8lBG0")
+    client.run("ODc2MDc0NDI5NTM5NTgxOTgz.YRex5A.VUrdeUfhQZhRIDIgEmxMV7b4acE")
 
 def getTodaysGamesEveryone():
     watcher = LolWatcher(api_key)
-    summoners = ["engagingraging", "gillette", "anotherasian96", "shizzukani", "katastrophically", "lucians in paris", "kris wu did it", "channsenpaii", "Ekkos In Paris", "Joisugoi"]
+    summoners = ["engagingraging", "gillette", "anotherasian96", "shizzukani", "katastrophically", "lucians in paris", "kris wu did it",  "Ekkos In Paris", "Joisugoi"]
     result = ""
     for summoner in summoners:
         result = result + getTodaysGamesSingle(summoner) + "\n"
     return result
-    
 
 def getTodaysGamesSingle(summoner):
     watcher = LolWatcher(api_key)
