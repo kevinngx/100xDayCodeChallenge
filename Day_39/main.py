@@ -6,9 +6,13 @@ from flight_search import FlightSearch
 data_manager = DataManager()
 data_manager.getSheetData()
 
-# Update codes if 
-#data_manager.destination_data[0]["iataCode"] == "":
-for row in data_manager.destination_data:
-    if row["iataCode"] == "":
-        row["iataCode"] = FlightSearch().getDestinationCode( row["city"] )
+def main():
+    # Update codes if 
+    # if data_manager.destination_data[0]["iataCode"] == "":
+    for row in data_manager.destination_data:
+        if row["iataCode"] == "":
+            row["iataCode"] = FlightSearch().getDestinationCode( row["city"] )
 data_manager.updateIataCodes()
+
+if __name__ == "__main__":
+    main()
