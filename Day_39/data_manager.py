@@ -8,7 +8,7 @@ class DataManager:
         self.destination_data = {}
     
     def getSheetData(self):
-        self.destination_data = requests.get(SHEETY_ENDPOINT).json()["prices"] 
+        self.destination_data = requests.get(SHEETY_ENDPOINT).json()['prices'] 
         return self.destination_data
 
     def updateIataCodes(self):
