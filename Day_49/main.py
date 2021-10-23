@@ -35,9 +35,6 @@ def main():
         driver.find_element(By.CSS_SELECTOR, '.job-view-layout .jobs-save-button').click()
         print("Job Saved")
 
-
-
-
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
