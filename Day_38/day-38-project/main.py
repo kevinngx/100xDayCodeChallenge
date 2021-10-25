@@ -9,18 +9,37 @@ SHEETY_ENDPOINT = "https://api.sheety.co/28b8ecbf576dbb86c2335c6d97b52ee7/workou
 
 # DEFAULT VARIABLES
 GENDER = "male"
-WEIGHT_KG = "75"
-HEIGHT_CM = 168.0
+WEIGHT_KG = 75
+HEIGHT_CM = 168
 AGE = 23
 
 def main():
+    postToSheets()
+
+def postToSheets():
+    sheet_inputs = {
+            "workout": {
+            "Date": "21/07/2021",
+            "Time": "13:00:00",
+            "Exercise":"Lifting",
+            "Duration": 30,
+            "Calories": 100
+        }
+    }
+
+    # No Auth
+    response = requests.post(NUTRITIONIX_ENDPOINT, json=sheet_inputs)
+    print(response)
+
+
+def naturalQuery():
     query = "ran 3 miles"
     parameters = {
         "query": query,
         "gender": GENDER,
         "weight_kg":WEIGHT_KG,
         "height_cm": HEIGHT_CM,
-        "age":"30"
+        "age": AGE
     }
     
     headers = { 
@@ -29,7 +48,6 @@ def main():
         "x-remote-user-id": "0"
         }
     
-    print("Making requests...")
     response = requests.post(NUTRITIONIX_ENDPOINT, params=parameters, headers=headers)
     print(response)
 
