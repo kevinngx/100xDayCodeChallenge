@@ -3,7 +3,7 @@ import random
 
 app = Flask(__name__)
 
-# Generate a random number when the server is initiated
+# Generate a random number when the server is initiated 
 correct_number = random.randint(0,9)
 print(f'Correct number is {correct_number}')
 
