@@ -1,3 +1,0 @@
-Hello, this is text inside the file
-This is the second line of the file
-And finally, this is the last line of the file
