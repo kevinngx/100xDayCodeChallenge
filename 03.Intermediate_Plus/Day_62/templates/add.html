@@ -1,0 +1,56 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="static/css/styles.css">
+{% endblock %}
+
+{% block title %}Add A New Cafe{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      {% if success %}
+        <h1>Cafe added! ({{form.cafe.data}})</h1>
+      {% endif %}
+
+      <h1>Add a new cafe into the database</h1>
+
+      <!-- This is where your WTForm will go -->
+
+      <form method="POST" action="{{url_for('add_cafe')}}" novalidate>
+        {{ form.csrf_token }}
+        <p>
+          <a>{{ form.cafe.label }}</a> <br> {{ form.cafe(size=60) }} 
+        </p>
+        <p>
+          <a>{{ form.location.label }}</a> <br> {{ form.location(size=60) }} 
+        </p>
+        <p>
+          <a>{{ form.opening_time.label }}</a> <br> {{ form.opening_time(size=60) }} 
+        </p>
+        <p>
+          <a>{{ form.closing_time.label }}</a> <br> {{ form.closing_time(size=60) }} 
+        </p>
+        <p>
+          <a>{{ form.rating.label }}</a> <br> {{ form.rating(size=60) }} 
+        </p>
+        <p>
+          <a>{{ form.wifi.label }}</a> <br> {{ form.wifi(size=60) }} 
+        </p>
+        <p>
+          <a>{{ form.power.label }}</a> <br> {{ form.power(size=60) }} 
+        </p>
+        <p>{{ form.submit(size=60) }}</p> 
+      </form>
+
+    <br>
+    <a class="btn btn-warning btn-lg" href={{url_for('cafes')}} role="button">See all cafes</a>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

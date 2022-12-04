@@ -1,0 +1,49 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="static/css/styles.css">
+{% endblock %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Cafes</h1>
+
+	  <table class="table">
+          <tr>
+            <th>Cafe Name</th>
+            <th>Location</th>
+            <th>Open</th>
+            <th>Close</th>
+            <th>Coffee</th>
+            <th>Wifi</th>
+            <th>Power</th>
+          </tr>
+            {% for cafe in cafes %}
+              {% if cafe[0] != 'Cafe Name' %}
+              <tr>
+                <td>{{cafe[0]}}</td>
+                <td><a href="{{cafe[1]}}">Link to Location</a></td>
+                <td>{{cafe[2]}}</td>
+                <td>{{cafe[3]}}</td>
+                <td>{{cafe[4]}}</td>
+                <td>{{cafe[5]}}</td>
+                <td>{{cafe[6]}}</td>
+              </tr>
+              {% endif %}
+            {% endfor %}
+  	  </table>
+
+      <a class="btn btn-warning btn-lg" href={{url_for('home')}} role="button">Return to index page</a>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
