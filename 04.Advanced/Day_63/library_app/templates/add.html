@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+    <form action="{{url_for('add')}}" method="POST">
+        {{ form.csrf_token }}
+        <label>{{form.name.label}}</label> {{ form.name(size=30) }} <br> 
+        <label>{{form.author.label}}</label> {{ form.author(size=30) }} <br> 
+        <label>{{form.rating.label}}</label> {{ form.rating(size=30) }} <br> 
+        <p>{{ form.submit(size=60) }}</p>
+    </form>
+    {% if success %}
+        <p style="color:green">Form submitted succesfully!</p>
+    {% endif %}
+    <a href="{{url_for('home')}}">back to home</a>
+</body>
+</html>
